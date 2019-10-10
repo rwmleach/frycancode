@@ -41,7 +41,7 @@ body {
     overflow: visible;
 }
 
-.nav {
+nav {
     background-color: #3498db;
     color: white;
     text-align: right;
@@ -50,16 +50,16 @@ body {
     padding: 16px 0px;
 }
 
-.nav a {
+nav a {
     background-color: #3498db;
     color: #ecf0f1;
 }
 
-.nav a:hover {
+nav a:hover {
     color: #7f8c8d;
 }
 
-.nav img {
+nav img {
     padding: 0px 0px 0px 0px;
 }
 
@@ -77,7 +77,7 @@ body {
     margin: 20px 20px 20px 0px;
 }
 
-.body-content p {
+.body-content p, ol {
     padding: 4px 0px;
 }
 
@@ -97,7 +97,7 @@ body {
     grid-area: body-right;
 }
 
-.footer, .footer p {
+footer, footer p {
     grid-area: footer;
     text-align: center;
     padding: 3px;
@@ -120,9 +120,13 @@ h2 {
     font-weight: normal;
 }
 
-p {	
+p, ol {	
     font-size: 1.125em;
-	}
+    }
+
+ol {
+    padding: 20px;
+}
 	
 a {
 	color: #c0392b;
@@ -159,7 +163,7 @@ a:hover {
         text-align: center;
     }
 
-    .nav {
+    nav {
         text-align: center;
     }
 
@@ -178,7 +182,7 @@ a:hover {
         flex: 1 0 auto; /* allows the content to grow but not shrink
     } 
 
-    .footer {
+    footer {
         /* position: relative; */
         /* bottom: 0 !important; */
         font-size: 0.9em;
