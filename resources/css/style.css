@@ -52,12 +52,12 @@ nav {
     padding: 16px 0px;
 }
 
-nav a {
+nav a, .title a {
     background-color: var(--bg-blue);
     color: #ecf0f1;
 }
 
-nav a:hover {
+nav a:hover, .title a:hover {
     color: #919b9c;
     transition: color .5s;
 }
@@ -141,6 +141,10 @@ a {
 	margin: 0;
 }
 
+#pageTitle {
+    color: white;
+}
+
 a:hover {
 	color: #e74c3c;
 }
@@ -152,6 +156,11 @@ a:hover {
 .tags {
 	color: #7f8c8d;
     position: inline;
+}
+
+.screenshot {
+    margin: auto;
+    max-width: 250px;
 }
 
 /* FOR MOBILE */

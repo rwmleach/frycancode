@@ -11,8 +11,8 @@
     <div class="grid-container">
         <!-- Header -->
             <div class="head-left"></div>
-            <div class="title"><h1>fryCanCode</h1></div>
-            <nav><a href="https://twitter.com/rwmleach"><img class="nav" src="./resources/images/Twitter_Social_Icon_Rounded_Square_White.png" width=30px alt="Twitter"></a> <a href="#posts">Posts</a> <a href="mailto:rwmleach@gmail.com">Contact</a></nav>
+            <div class="title"><h1 tabindex="1"><a href="./index.html" accesskey="h">fryCanCode</a></h1></div>
+            <nav><a href="https://twitter.com/rwmleach" accesskey="t" tabindex="2"><img class="nav" src="./resources/images/Twitter_Social_Icon_Rounded_Square_White.png" width=30px alt="Twitter"></a> <a href="#posts" accesskey="p" tabindex="3">Posts</a> <a href="mailto:rwmleach@gmail.com" accesskey="c" tabindex="4">Contact</a></nav>
             <div class="head-right"></div>
         <!-- Body -->
             <div class="body-left"></div>
@@ -22,33 +22,37 @@
                 <h2>This site is a place for me to keep track of my projects. Software used for these projects includes Xcode, PyCharm, Visual Studio Code, Spyder, and others.</h2>
                 <br>                
                 <a id="posts"></a>
-                <ol reversed role="presentation">
-                <li>Wrote a command line program to simplify a power of i (eg. enter i^227 and return -i) <span class="tags">#python #math</span></li>
-                <li>Began using pylint to make sure Python code meets standards <span class="tags">#python #commandLine</span></li>
-                <li>Updated the site's CSS to include the use of CSS variables <span class="tags">#css #html</span></li>
-                <li>Made a <a href="./portfolio/screenShots/rockPaperScissors.png" target="_blank">"Rock-Paper-Scissors" brain-teaser app</a> where you have to choose the correct response to win <em>or</em> lose <span class="tags">#iOS #iPhone #app #SwiftUI #hackingwithswift</span></li>
-                <li>Wrote a python script that chooses a random task from my to-do list and runs from the command line <span class="tags">#python #commandLine</span></li>
-                <li>Used Scikit-learn to do a Linear Regression analysis of my ASCAP earnings to predict future royalties! <span class="tags">#python #data #machine-learning</span></li>
-                <li>Made <a href="./portfolio/screenShots/imperialConvertor.png" target="_blank">a simple iPhone app</a> to convert between inches, feet, miles and yards <span class="tags">#iPhone #swift #SwiftUI</span></li>
-                <li>Wrote a program that compares two poker hands and declares a winner <span class="tags">#python #games #ProjectEuler</span></li>
-                <li><a href="./portfolio/flexboxToDo/flexboxToDo.html">To-Do Page with Flexbox</a> <span class="tags">#css #codecademy</span></li>
-                <li>Made a few improvements to this page for web accessibility <span class="tags">#HTML #CSS</span></li>
-                <li><a href="./portfolio/tsunamicoffee/tsunamicoffee.html">Tsunami Coffee</a> <span class="tags">#css #codecademy</span></li>
-                <li>Added a dynamic a greeting to the opening paragraph which changes depending on the time of day <span class="tags">#javascript</span></li>
-                <li>Wrote a script for Alexa to participate in a family inside joke <span class="tags">#amazon #alexa #javascript</span></li>
-                <li>Created a simple Alexa skill that responds to a greeting <span class="tags">#amazon #alexa</span></li>
-                <li><a href="./portfolio/architecture/architecture.html">Achitecture Blog</a> <span class="tags">#css #codecademy</li>
-                <li>Made Word With Friends/Scrabble style game in Python <span class="tags">#python #game #MIT</span></li>
-                <li><a href="./portfolio/stuffedanimals/stuffedanimals.html">Stuffed Animals Task List</a> <span class="tags">#css #codecademy</span></li>
-                <li>Made Hangman game in Python <span class="tags">#python #game #MIT</span></li>
-                <li>Updated this site with CSS grid <span class="tags">#html #css</span</li>
-				<li><a href="./portfolio/daviesburgers/daviesburgers.html">Davie's Burgers</a> <span class="tags">#css #codecademy</span></li>
-				<li><a href="./portfolio/dasmotos/dasmotos.html">Dasmoto's Arts & Crafts</a> <span class="tags">#html #css #codecademy</span></li>
-				<li><a href="./portfolio/oliviawoodruff/oliviawoodruff.html">Olivia Woodruff Portfolio</a> <span class="tags">#html #css #codecademy</span></li>
-				<li><a href="./portfolio/healthyrecipes/healthyrecipes.html">Healthy Recipes</a> <span class="tags">#html #codecademy</span></li>
-				<li><a href="./portfolio/winefestival/winefestival.html">Wine Festival Schedule</a> <span class="tags">#html #tables #codecademy</span></li>
-				<li><a href="./portfolio/fashionblog.html">Fashion Blog</a> <span class="tags">#html #codecademy</span></li>
-                <li>Created this site <span class="tags">#html</span></li>
+                <ol reversed role="presentation" id="list">
+                    <li>Starting making a simple <a href="./portfolio/taskmanager.html">task manager</a> with JavaScript. <span class="tags">#javascript</span></li>
+                    <li>Press <button onclick="replaceImages()">this button</button> to change the images to text. <span class="tags">#javascript</span></li>
+                    <li><button onclick="alert('Seriously?');">Don't press this button</button> <span class="tags">#javascript</span></li>
+                    <li>Made a <a href="./portfolio/wordScramble/wordScramble.html">word scramble iPhone game</a> where you try to make words out of a given word <span class="tags">#iOS #iPhone #SwiftUI #app #game #hackingwithswift</span></li>
+                    <li>Wrote a command line program to simplify a power of i (eg. enter i^227 and return -i) <span class="tags">#python #math</span></li>
+                    <li>Began using pylint to make sure Python code meets standards <span class="tags">#python #commandLine</span></li>
+                    <li>Updated the site's CSS to include the use of CSS variables <span class="tags">#css #html</span></li>
+                    <li>Made a <a href="./portfolio/screenShots/rockPaperScissors.png" target="_blank">"Rock-Paper-Scissors" brain-teaser app</a> where you have to choose the correct response to win <em>or</em> lose <span class="tags">#iOS #iPhone #app #game #SwiftUI #hackingwithswift</span></li>
+                    <li>Wrote a python script that chooses a random task from my to-do list and runs from the command line <span class="tags">#python #commandLine</span></li>
+                    <li>Used Scikit-learn to do a Linear Regression analysis of my ASCAP earnings to predict future royalties! <span class="tags">#python #data #machine-learning</span></li>
+                    <li>Made <a href="./portfolio/screenShots/imperialConvertor.png" target="_blank">a simple iPhone app</a> to convert between inches, feet, miles and yards <span class="tags">#iPhone #swift #SwiftUI</span></li>
+                    <li>Wrote a program that compares two poker hands and declares a winner <span class="tags">#python #games #ProjectEuler</span></li>
+                    <li><a href="./portfolio/flexboxToDo/flexboxToDo.html">To-Do Page with Flexbox</a> <span class="tags">#css #codecademy</span></li>
+                    <li>Made a few improvements to this page for web accessibility <span class="tags">#HTML #CSS</span></li>
+                    <li><a href="./portfolio/tsunamicoffee/tsunamicoffee.html">Tsunami Coffee</a> <span class="tags">#css #codecademy</span></li>
+                    <li>Added a dynamic a greeting to the opening paragraph which changes depending on the time of day <span class="tags">#javascript</span></li>
+                    <li>Wrote a script for Alexa to participate in a family inside joke <span class="tags">#amazon #alexa #javascript</span></li>
+                    <li>Created a simple Alexa skill that responds to a greeting <span class="tags">#amazon #alexa</span></li>
+                    <li><a href="./portfolio/architecture/architecture.html">Achitecture Blog</a> <span class="tags">#css #codecademy</li>
+                    <li>Made Word With Friends/Scrabble style game in Python <span class="tags">#python #game #MIT</span></li>
+                    <li><a href="./portfolio/stuffedanimals/stuffedanimals.html">Stuffed Animals Task List</a> <span class="tags">#css #codecademy</span></li>
+                    <li>Made Hangman game in Python <span class="tags">#python #game #MIT</span></li>
+                    <li>Updated this site with CSS grid <span class="tags">#html #css</span</li>
+                    <li><a href="./portfolio/daviesburgers/daviesburgers.html">Davie's Burgers</a> <span class="tags">#css #codecademy</span></li>
+                    <li><a href="./portfolio/dasmotos/dasmotos.html">Dasmoto's Arts & Crafts</a> <span class="tags">#html #css #codecademy</span></li>
+                    <li><a href="./portfolio/oliviawoodruff/oliviawoodruff.html">Olivia Woodruff Portfolio</a> <span class="tags">#html #css #codecademy</span></li>
+                    <li><a href="./portfolio/healthyrecipes/healthyrecipes.html">Healthy Recipes</a> <span class="tags">#html #codecademy</span></li>
+                    <li><a href="./portfolio/winefestival/winefestival.html">Wine Festival Schedule</a> <span class="tags">#html #tables #codecademy</span></li>
+                    <li><a href="./portfolio/fashionblog.html">Fashion Blog</a> <span class="tags">#html #codecademy</span></li>
+                    <li>Created this site <span class="tags">#html</span></li>
                 </ol>
                 <!-- <br>
                 <h2>Website designs:</h2>
@@ -72,5 +76,17 @@
             <p>Copyright <script src="./resources/scripts/currentYear.js"></script> | rwmleach@gmail.com</p>
         </footer>
     </div>
+    <script>
+        function replaceImages() {
+            let images = document.body.getElementsByTagName("img");
+            for (let i = images.length -1; i >=0; i--) {
+                let image = images[i];
+                if (image.alt) {
+                    let text = document.createTextNode(image.alt);
+                    image.parentNode.replaceChild(text, image);
+                }
+            }
+        }        
+    </script>
 </body>
 </html>
