@@ -4,7 +4,9 @@
     <title>fryCanCode</title>
     <link rel="stylesheet" type="text/css" href="../resources/css/reset.css">
 	<link href="../resources/css/style.css" type="text/css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -18,11 +20,12 @@
             <div class="body-left"></div>
         <div class="body-content" role="presentation">
                 <h2>Task Manager</h2>
-                <p>A simple task manager that I'm playing with as I learn about manipulating web pages with JavaScript.</p>
+                <p><br>A simple task manager that I'm playing with as I learn about manipulating web pages with JavaScript and jQuery.</p>
+                <p><input type="text" placeholder="Add a new item" data-help="A task, a reminder, or whatever is on your mind." onfocus="this.value=''" id="textBox"> <button class="btn btn-primary" onclick="addItem()">Add</button></p><p id="help"> </p>
                 <ol id="list">
-                    <p><input type="text" placeholder="Add a new item" onfocus="this.value=''" id="textBox"> <button onclick="addItem()">Add</button></p>
                     <li>Example item</li>
                 </ol>
+                <button onclick="$('li').remove();">Delete All Items</button>
                 
                 
         </div>
@@ -42,6 +45,16 @@
             theList.insertBefore(myNode, items[0]);
             document.getElementById("textBox").value = '';
         }
+
+        let help = document.querySelector("#help");
+        let field = document.querySelector("input");
+        field.addEventListener("focus", event => {
+            let text = event.target.getAttribute("data-help");
+            help.textContent = text;
+        });
+        field.addEventListener("blur", event => {
+            help.textContent = "";
+        });
     </script>
 </body>
 </html>

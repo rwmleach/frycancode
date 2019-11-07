@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fryCanCode</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/reset.css">
+	<link href="../resources/css/style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!-- https://afeld.github.io/emoji-css/ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dot {
+            height: 8px; width: 8px;
+            border-radius: 4px; /* rounds corners */
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Header -->
+            <div class="head-left"></div>
+            <div class="title"><h1><a href="../index.html">fryCanCode</a></h1></div>
+            <nav><a href="https://twitter.com/rwmleach"><img class="nav" src="../resources/images/Twitter_Social_Icon_Rounded_Square_White.png" width=30px alt="Twitter"></a> <a href="../index.html#posts">Posts</a> <a href="mailto:rwmleach@gmail.com">Contact</a></nav>
+            <div class="head-right"></div>
+        <!-- Body -->
+            <div class="body-left"></div>
+        <div class="body-content" role="presentation">
+                <h2>Javascript playground</h2>
+                <ol>
+                    <li><button class="btn btn-default" onclick="$('*').css('color', 'red'); alert('Seriously?');">Don't press this button</button></li>
+                    <li>Press and hold r, g, b, y, v, w, or k for a light show.</li>
+                    <li>Click anywhere to draw a red dot.</li>
+                    <li>Drag the bar to change its width
+                            <div class="bar" style="background: orange; width: 60px; height: 20px;">
+                                </div>
+                    </li>
+                    <li>Press up/keydown to infalte/deflate the balloon: <i class="em em-balloon" id="balloon" aria-role="presentation" aria-label="BALLOON"></i></p></li>
+                </ol>                
+                
+        </div>
+        <div class="body-right"></div>
+        <!-- Footer -->
+        <footer>
+            <p>Copyright <script src="../resources/scripts/currentYear.js"></script> | rwmleach@gmail.com</p>
+        </footer>
+    </div>
+    <script>
+        // Background color changer
+        window.addEventListener("keydown", event => {
+            if (event.key == "v") {
+                document.body.style.background = "violet";
+            };
+            if (event.key == "r") {
+                document.body.style.background = "red";
+            };
+            if (event.key == "g") {
+                document.body.style.background = "green";
+            };
+            if (event.key == "b") {
+                document.body.style.background = "blue";
+            };
+            if (event.key == "y") {
+                document.body.style.background = "yellow";
+            };
+            if (event.key == "w") {
+                document.body.style.background = "white";
+            };
+            if (event.key == "k") {
+                document.body.style.background = "black";
+            };
+        });
+        window.addEventListener("keyup", event => {
+            document.body.style.background = "";
+        });
+
+        window.addEventListener("click", event => {
+        let canvas = document.querySelector("body");
+        let dot = document.createElement("div");
+        dot.className = "dot";
+        dot.style.left = (event.pageX - 4) + "px";
+        dot.style.top = (event.pageY - 4) + "px";
+        canvas.appendChild(dot);
+    });
+
+    // draggable bar
+    let lastX;
+    let bar = document.querySelector(".bar");
+    bar.addEventListener("mousedown", event => {
+        if (event.button == 0) {
+            lastX = event.clientX;
+            window.addEventListener("mousemove", moved);
+            event.preventDefault();
+        }
+    });
+
+    function moved(event) {
+        if (event.buttons == 0) {
+            window.removeEventListener("mousemove", moved);
+        } else {
+            let dist = event.clientX - lastX;
+            let newWidth = Math.max(10, bar.offsetWidth + dist);
+            bar.style.width = newWidth + "px";
+            lastX = event.clientX;
+        }
+    }
+
+    // balloon
+    // let balloon = document.querySelector("#balloon");
+    let balloonSize = 1.125;
+    function inflate() {
+        if (event.key == "ArrowUp") {
+            balloonSize = balloonSize * 1.1;
+            $("#balloon").css("font-size", `${balloonSize}em`);
+            if (balloonSize >= 10) {
+                $("#balloon").removeClass("em-balloon");
+                $("#balloon").addClass("em-boom")
+                $("body").css("background", "red");
+                $(window).off('keydown', inflate);
+            }
+        };
+        if (event.key == "ArrowDown") {
+            balloonSize = Math.max(0.5, balloonSize * 0.9);
+            $("#balloon").css("font-size", `${balloonSize}em`);
+        };
+    }
+    // window.addEventListener("keydown", inflation);
+    $(window).on('keydown', inflate);
+
+    </script>
+</body>
+</html>
