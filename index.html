@@ -7,8 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/27552ffac8.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="grid-container">
@@ -20,13 +19,15 @@
         <!-- Body -->
             <div class="body-left"></div>
         <div class="body-content" role="presentation">
-                <h2><script src="./resources/scripts/add-content.js"></script> I'm making cool stuff with Swift <i class="fab fa-swift"></i>, Python <i class="fab fa-python"></i>, JavaScript <i class="fab fa-js-square"></i>, Unity, C#, HTML, CSS, jQuery, PostgreSQL, and more.</h2>
+                <h2><script src="./resources/scripts/add-content.js"></script> I'm learning and making cool stuff with Swift <i class="fab fa-swift"></i>, Python <i class="fab fa-python"></i>, JavaScript <i class="fab fa-js-square"></i>, Unity, C#, HTML, CSS, jQuery, PostgreSQL, and more.</h2>
                 <br>
                 <h2>This site is a place for me to keep track of my projects. Software used for these projects includes Xcode, PyCharm, Visual Studio Code, Spyder, and others.</h2>
                 <br>                
                 <a id="posts"></a>
                 <ol reversed role="presentation" id="list">
-                    <li>Added <a href="./portfolio/javascriptPlayground.html">an inflatable balloon</a> to the JavaSCript Playground <span class="tags">#javascript #jquery</span></li>
+                    <li>Added a like button with React: <div style="display: inline-block;" id="like_button_container"></div><span class="tags">#javascript #react</span></li>
+                    <li>Completed the <a href="https://www.freecodecamp.org/certification/fcc0510d9bc-ecf4-4f8d-a998-2b2e94b05739/javascript-algorithms-and-data-structures">JavaScript Algorithms and Data Structures Certification</a> from freeCodeCamp <span class="tags">#javascript #freecodecamp</span></li>
+                    <li>Added <a href="./portfolio/javascriptPlayground.html">an inflatable balloon</a> to the JavaScript Playground <span class="tags">#javascript #jquery</span></li>
                     <li>Made a <a href="./portfolio/scrollable.html">page with a progress bar</a> linked to scroll to show reading progress <span class="tags">#javascript</span></li>
                     <li>Click anywhere in the <a href="./portfolio/javascriptPlayground.html">JavaScript playground</a> to draw a dot. <span class="tags">#javascript</span></li>
                     <li>Added a keyboard lightshow to the <a href="./portfolio/javascriptPlayground.html">JavaScript playground</a> <span class="tags">#javascript</span></li>
@@ -101,5 +102,12 @@
             }
         }
     </script>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="./resources/scripts/like_button.js"></script>
 </body>
 </html>

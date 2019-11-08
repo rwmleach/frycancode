@@ -6,8 +6,15 @@
 	<link href="../resources/css/style.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="grid-container">
@@ -19,42 +26,90 @@
         <!-- Body -->
             <div class="body-left"></div>
         <div class="body-content" role="presentation">
+
                 <h2>Task Manager</h2>
-                <p><br>A simple task manager that I'm playing with as I learn about manipulating web pages with JavaScript and jQuery.</p>
-                <p><input type="text" placeholder="Add a new item" data-help="A task, a reminder, or whatever is on your mind." onfocus="this.value=''" id="textBox"> <button class="btn btn-primary" onclick="addItem()">Add</button></p><p id="help"> </p>
+                <p><br>A simple task manager that I'm playing with as I learn about manipulating web pages with JavaScript and React.</p>
+                <p></p>
+                <!-- <input type="text" placeholder="Add a new item" onfocus="this.value=''" id="textBox"> <button class="btn btn-primary" onclick="taskList.addItem()">Add</button> -->
                 <ol id="list">
-                    <li>Example item</li>
+                    <div id="root"></div>
                 </ol>
-                <button onclick="$('li').remove();">Delete All Items</button>
+                <div id="task-list"></div>
+                <a href="#" onclick="$('li').remove();">Delete All Items</a>
                 
                 
         </div>
         <div class="body-right"></div>
         <!-- Footer -->
         <footer>
-            <p>Copyright <script src="./resources/scripts/currentYear.js"></script> | rwmleach@gmail.com</p>
+            <p>Copyright <script src="http://ryanleach.com/private/frycancode/resources/scripts/currentYear.js"></script> | rwmleach@gmail.com</p>
         </footer>
     </div>
-    <script>
-        function addItem() {
-            let theList = document.getElementById("list");
-            let items = document.body.getElementsByTagName("li");
-            let myNode = document.createElement("li");
-            let text = document.getElementById("textBox").value;
-            myNode.appendChild(document.createTextNode(text));
-            theList.insertBefore(myNode, items[0]);
-            document.getElementById("textBox").value = '';
-        }
 
-        let help = document.querySelector("#help");
-        let field = document.querySelector("input");
-        field.addEventListener("focus", event => {
-            let text = event.target.getAttribute("data-help");
-            help.textContent = text;
-        });
-        field.addEventListener("blur", event => {
-            help.textContent = "";
-        });
-    </script>
+    <!-- <script src="../resources/scripts/taskManager.js"></script> -->
+    <script type="text/babel">
+        function renderTaskList() {
+            ReactDOM.render(
+                <Tasks />,
+                document.getElementById('root')
+            );
+        }        
+
+        class Tasks extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    tasks: ['Wash the dishes', 'Learn more JavaScript']
+                };
+                this.addItem = this.addItem.bind(this);
+                this.removeItem = this.removeItem.bind(this);
+            }
+
+            addItem = () => {
+                console.log("add button clicked");
+                let text = document.getElementById("textBox").value;
+                this.setState(state => {
+                    const updatedTasks = state.tasks.concat(text);
+
+                    return { tasks: updatedTasks }
+                });
+                document.getElementById("textBox").value = '';
+            }
+
+            removeItem = i => {
+                console.log("remove button clicked");
+                this.setState(state => {
+                    const updatedTasks = state.tasks.filter((item, j) => i !== j);
+
+                    return { tasks: updatedTasks }
+                });
+            }
+
+            render() {      
+                return (
+                    <div>
+                        <p><input type="text" placeholder="Add a new item" id="textBox" /> 
+                        <button href="#" id="addTask" onClick={this.addItem}> Add Task</button></p>
+                        <ol>
+                            {this.state.tasks.map(function(task, index){
+                                return <li key={ index }>{task} <a className="small" onClick={() => this.removeItem(index)} href="#" >Delete</a></li>;
+                            }.bind(this))}                      
+                        </ol>
+                    </div>
+                );
+            }            
+        }
+        const tasklist = new Tasks();
+        renderTaskList();
+  
+      </script>
 </body>
 </html>
+
+
+<!-- <p><input type="text" placeholder="Add a new item" onfocus="this.value=''" id="textBox"> <button class="btn btn-primary" onclick="this.addItem">Add Task</button></p>
+                        <ol>
+                            {this.state.tasks.map(function(task, index){
+                                return <li key={ index }>{task}</li>;
+                            })}                      
+                        </ol> -->
