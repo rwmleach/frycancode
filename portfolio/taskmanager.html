@@ -89,7 +89,7 @@
                 return (
                     <div>
                         <p><input type="text" placeholder="Add a new item" id="textBox" /> 
-                        <button href="#" id="addTask" onClick={this.addItem}> Add Task</button></p>
+                        <a href="#" id="addTask" onClick={this.addItem}> Add Task</a></p>
                         <ol>
                             {this.state.tasks.map(function(task, index){
                                 return <li key={ index }>{task} <a className="small" onClick={() => this.removeItem(index)} href="#" >Delete</a></li>;
